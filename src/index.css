@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  ::selection {
+    @apply bg-brand-200 text-ink;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-canvas;
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(100deg, #5b3df5 0%, #8b6dff 45%, #12ccab 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #6d4aff 0%, #5b3df5 45%, #3b22b0 100%);
+  }
+  .bg-aurora {
+    background:
+      radial-gradient(60% 50% at 15% 10%, rgba(109, 74, 255, 0.16) 0%, transparent 60%),
+      radial-gradient(40% 40% at 90% 15%, rgba(46, 230, 197, 0.14) 0%, transparent 60%),
+      radial-gradient(50% 50% at 70% 90%, rgba(139, 109, 255, 0.10) 0%, transparent 60%);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(11, 16, 38, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 16, 38, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .bg-dots {
+    background-image: radial-gradient(rgba(11, 16, 38, 0.09) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/60;
+  }
+  .glass-dark {
+    @apply bg-ink/60 backdrop-blur-xl border border-white/10;
+  }
+  .card {
+    @apply bg-white rounded-card shadow-soft;
+  }
+  .num {
+    @apply font-display tabular-nums tracking-tight;
+  }
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, #eceef5 0px, #f7f8fc 120px, #eceef5 240px);
+    background-size: 800px 100%;
+    @apply animate-shimmer rounded-xl;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #dde0eb transparent;
+  }
+  .ticket-edge {
+    -webkit-mask:
+      radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
