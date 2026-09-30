@@ -47,7 +47,7 @@ export default function TVMode() {
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex gap-2 opacity-40 hover:opacity-100 transition">
         <Link to="/business" className="h-10 px-3 rounded-xl bg-white/10 inline-flex items-center gap-2 text-sm font-semibold"><ArrowLeft className="h-4 w-4" /> Dashboard</Link>
         <button onClick={callNext} className="h-10 px-3 rounded-xl bg-white/10 inline-flex items-center gap-2 text-sm font-semibold"><PhoneCall className="h-4 w-4" /> Call next</button>
-        <button onClick={() => document.documentElement.requestFullscreen?.()} className="h-10 w-10 rounded-xl bg-white/10 grid place-items-center" aria-label="Fullscreen"><Maximize className="h-4 w-4" /></button>
+        <button onClick={() => document.documentElement.requestFullscreen?.().catch(() => {})} className="h-10 w-10 rounded-xl bg-white/10 grid place-items-center" aria-label="Fullscreen"><Maximize className="h-4 w-4" /></button>
       </div>
 
       {/* Header */}
